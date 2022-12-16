@@ -19,7 +19,7 @@ A tick tack toe game created with HTML, CSS and Javascript. Playable within a br
 
 1. Prototype design and create naming convention
 
-![](/home/jeffrey/.var/app/com.github.marktext.marktext/config/marktext/images/2022-12-17-09-53-09-Screenshot%20from%202022-12-17%2009-52-29.png)
+![](https://github.com/Jeffrey-Fazal/tick-tack-toe/blob/main/mockup.png?raw=true)
 
 [Mockup created in Figma](https://www.figma.com/file/0onvWAuTENYgJZhLgbPtsp/Tick-Tack-Toe?node-id=0%3A3&t=bXsmKQJEjtWe2mFX-3)
 
