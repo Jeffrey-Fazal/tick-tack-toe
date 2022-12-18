@@ -19,12 +19,14 @@ A tick tack toe game created with HTML, CSS and Javascript. Playable within a br
 
 1. Prototype design and create naming convention
 
-![](https://github.com/Jeffrey-Fazal/tick-tack-toe/blob/main/mockup.png?raw=true)
+![](/home/jeffrey/.var/app/com.github.marktext.marktext/config/marktext/images/2022-12-18-19-09-39-mockup.png)[Mockup created in Figma](https://www.figma.com/file/0onvWAuTENYgJZhLgbPtsp/Tick-Tack-Toe?node-id=0%3A3&t=bXsmKQJEjtWe2mFX-3)
 
-[Mockup created in Figma](https://www.figma.com/file/0onvWAuTENYgJZhLgbPtsp/Tick-Tack-Toe?node-id=0%3A3&t=bXsmKQJEjtWe2mFX-3)
-
-2. Create base HTML elements and DOM structure
-3. Break project into smaller parts
+2. Create basic game logic in js
+   1. Create an array to store the data
+   2. Find a way to output the data nicely 
+   3. 
+3. Create base HTML elements and DOM structure
+4. Break project into smaller parts
    1. HTML/CSS design - barebones
    2. JS: Think about the setup, storing variables etc
       1. Add event listeners to each part of the grid
@@ -34,12 +36,14 @@ A tick tack toe game created with HTML, CSS and Javascript. Playable within a br
       5. Show win or loose
    3. Time to get fancy. Add extra features including: 
       1. Win counter
-      2. Audio for clicking stuff and win/loose
-      3. Reset
-      4. Toggle between human and cpu
-      5. Sound toggle
-      6. Count down timer
-      7. Changing the board (expanding grid and custom avatars)
+      2. Higlight the grid that is about to be played
+      3. Animate the cpu last move (shake the token) 
+      4. Audio for clicking stuff and win/loose
+      5. Reset
+      6. Toggle between human and cpu
+      7. Sound toggle
+      8. Count down timer
+      9. Changing the board (expanding grid and custom avatars)
 
 ## Installation instruction
 
