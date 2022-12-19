@@ -15,6 +15,8 @@ A tick tack toe game created with HTML, CSS and Javascript. Playable within a br
 
 * Java script
 
+* Jsdocs
+
 ## Approach
 
 1. Prototype design and create naming convention
@@ -44,6 +46,7 @@ A tick tack toe game created with HTML, CSS and Javascript. Playable within a br
       7. Sound toggle
       8. Count down timer
       9. Changing the board (expanding grid and custom avatars)
+      10. Document code code with JS code
 
 ## Installation instruction
 

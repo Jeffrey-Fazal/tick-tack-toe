@@ -1,73 +1,103 @@
+// CPU = x | Player = o
+// TODO: User input, who starts first?
+// Random Choice
+// Difficult / Human vs Human
 
-let gameBoard = [
-  [null,null,null],
-  [null,null,null],
-  [null,null,null]
-]
+// Gameboard set to start
+let gameBoard1 = [
+    ['x',null,'x'],
+    ['o','o','o'],
+    [null,'o',null]
+  ]
 
-function debug() {
+// // Gameboard set to start
+// let gameBoard = [
+//     [null,null,null],
+//     [null,null,null],
+//     [null,null,null]
+//   ]
 
-console.table(gameBoard)
+let turn = ['1','2','3','4','5','6','7','8','9']
 
-console.log('[0][0] TL:' + gameBoard[0][0])
-console.log('[0][1] TM:' + gameBoard[0][1]) 
-console.log('[0][2] TR:' + gameBoard[0][2]) 
-
-console.log('[1][0] ML:' + gameBoard[1][0]) 
-console.log('[1][1] MM:' + gameBoard[1][1]) 
-console.log('[1][2] MR:' + gameBoard[1][2]) 
-
-console.log('[2][0] BL:' + gameBoard[2][0]) 
-console.log('[2][1] BM:' + gameBoard[2][1]) 
-console.log('[2][2] TL:' + gameBoard[2][2]) 
-}
-
-function winConditions(score) {
-    if (gameBoard[0][0] && gameBoard[0][1] && gameBoard[0][2] == true){ // All top row
-        console.log('win')
-        return true
-    } else if (gameBoard[1][0] && gameBoard[1][1] && gameBoard[1][2] == true){ // All middle row
-        console.log('win')
-        return true
-    } else if (gameBoard[2][0] && gameBoard[2][1] && gameBoard[2][2] == true){ // All bottom row
-        console.log('win')
-        return true
-    } else if (gameBoard[0][0] && gameBoard[1][0] && gameBoard[2][0] == true){ // All left
-        console.log('win')
-        return true
-    } else if (gameBoard[0][0] && gameBoard[1][1] && gameBoard[2][1] == true){ // All middle
-        console.log('win')
-        return true
-    } else if (gameBoard[0][0] && gameBoard[1][1] && gameBoard[2][2] == true){ // All left diagonal
-        console.log('win')
-        return true
-    } else if (gameBoard[2][0] && gameBoard[1][1] && gameBoard[0][2] == true){ // All right diagonal
-        console.log('win')
-        return true
-            } else if (gameBoard[0][2] && gameBoard[1][2] && gameBoard[2][2] == true){ // All middle
-        console.log('win')
-        return true
+function findWinner(board){
+    if(board[0][0] === 'x' && board[0][1] === 'x' && board[0][2] === 'x'){
+        console.log('x wins : Top Row')
+    }else if (board[0][0] === 'o' && board[0][1] === 'o' && board[0][2] === 'o') {
+        console.log('o wins : Top Row')
+    }else if (board[1][0] === 'o' && board[1][1] === 'o' && board[1][2] === 'o') {
+        console.log('o wins : Middle Row')
+    }else if (board[1][0] === 'x' && board[1][1] === 'x' && board[1][2] === 'x') {
+        console.log('x wins : Middle Row')
+    }else if (board[2][0] === 'x' && board[2][1] === 'x' && board[2][2] === 'x') {
+        console.log('x wins  : Bottom Row')
+    }else if (board[2][0] === 'o' && board[2][1] === 'o' && board[2][2] === 'o') {
+        console.log('o wins : Bottom Row')
+    }else if (board[0][0] === 'x' && board[1][1] === 'x' && board[2][2] === 'x') {
+        console.log('x wins  : Left Diagonal')
+    }else if (board[0][0] === 'o' && board[1][1] === 'o' && board[2][2] === 'o') {
+        console.log('o wins  : Left Diagonal')
+    }else if (board[0][2] === 'o' && board[1][1] === 'o' && board[2][0] === 'o') {
+        console.log('o wins : Right Diagonal')
+    }else if (board[0][2] === 'x' && board[1][1] === 'x' && board[2][0] === 'x') {
+        console.log('x wins : Right Diagonal')
+    }else if (board[0][1] === 'x' && board[1][1] === 'x' && board[2][1] === 'x') {
+        console.log('x wins : Middle Down')
+    }else if (board[0][1] === 'o' && board[1][1] === 'o' && board[2][1] === 'o') {
+        console.log('o wins : Middle Down')
+    }else {console.log('Draw/Continue')}
     }
-    else {console.log('loose')}
-    return false
+
+// Generate a random move for 3 x 3 grid
+function randomThreebyThree() {
+    return Math.floor(Math.random() * (3 - 1 + 1)) + 0;
 }
 
-function userInputa(input) {
-    gameBoard[0][0] = false
-    gameBoard[0][1] = true
-    gameBoard[0][2] = true
+function randomChoice(board,playerString) {
+    index1 = randomThreebyThree()
+    index2 = randomThreebyThree()
+    console.log(`First random indexes: ${playerString}: [${index1}] [${index2}]`)
+    while (board[index1][index2] !== null){
+        console.log(`Spot taken: [${index1}] [${index2}]`)
+        index1 = randomThreebyThree()
+        index2 = randomThreebyThree()
+        if(board[index1][index2] === null){
+            board[index1][index2] = playerString
+            console.log(`Assign ${playerString}: [${index1}] [${index2}]`)
+            break
+        }
+        
+    }
 }
 
-// Code from: https://medium.com/wdstack/quick-blurb-generating-a-table-from-an-array-in-javascript-41386fd449a9#:~:text=//setup%20our%20table%20array
-function displayBoard() {
-let table = document.createElement('table');
-for (let row of gameBoard) {
-  table.insertRow();
-  for (let cell of row) {
-    let newCell = table.rows[table.rows.length - 1].insertCell();
-    newCell.textContent = cell;
-  }
-}
-document.body.appendChild(table);
+function randomMove(board,playerString) {
+
+
+    index1 = randomThreebyThree()
+    index2 = randomThreebyThree()
+    if (board[index1][index2] === null){
+        board[index1][index2] = playerString
+    console.log('empty')
+    } else {console.log('grid has been played')}
 }
 
+// DEBUG: Output's value of gameBoard
+function debug(board,level) {
+if (level === 'basic'){
+console.table(board)
+} else{
+console.log('[0][0] TL:' + board[0][0])
+console.log('[0][1] TM:' + board[0][1]) 
+console.log('[0][2] TR:' + board[0][2]) 
+
+console.log('[1][0] ML:' + board[1][0]) 
+console.log('[1][1] MM:' + board[1][1]) 
+console.log('[1][2] MR:' + board[1][2]) 
+
+console.log('[2][0] BL:' + board[2][0]) 
+console.log('[2][1] BM:' + board[2][1]) 
+console.log('[2][2] TL:' + board[2][2]) }
+}
+
+debug(gameBoard1,'basic')
+randomChoice(gameBoard1,'x')
+debug(gameBoard1,'basic')

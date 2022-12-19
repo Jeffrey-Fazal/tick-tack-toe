@@ -14,18 +14,22 @@
 	<div id="gameBoard">
 
     <div class="grid-container">
-      <div class="grid-item TL">1</div>
-      <div class="grid-item TM">2</div>
-      <div class="grid-item TR">3</div>  
-      <div class="grid-item ML">4</div>
-      <div class="grid-item MM">5</div>
-      <div class="grid-item MR">6</div>  
-      <div class="grid-item BL">7</div>
-      <div class="grid-item BM">8</div>
-      <div class="grid-item BR">9</div>  
+      <div class="grid-item" id="TL">TL: [0][0]</div>
+      <div class="grid-item" id="TM">TM: [0][1]</div>
+      <div class="grid-item" id="TR">TR: [0][2]</div>  
+      <div class="grid-item" id="ML">ML: [1][0]</div>
+      <div class="grid-item" id="MM">MM: [1][1]</div>
+      <div class="grid-item" id="MR">MR: [1][2]</div>  
+      <div class="grid-item" id="BL">BL: [2][0]</div>
+      <div class="grid-item" id="BM">BM: [2][1]</div>
+      <div class="grid-item" id="BR">BR: [2][2]</div>  
+      <!--CSS Selector:  #gameBoard > div > div.grid-item.MM -->
     </div>
 		
 	</div>
 	</div>
+  <div id="output">
+
+  </div>
   </body>
 </html>
