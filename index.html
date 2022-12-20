@@ -9,6 +9,13 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico">
   </head>
   <body>
+    <div id="intro">
+      <p><ul>
+          <li>Human clicks on the board</li>
+          <li>Generate a random play by clicking CPU move</li>
+          <li>Check the winner to find out who wins</li>
+      </ul></p>
+    </div>
     <div class="grid-container">
       <div class="grid-item" id="TL">TL: [0][0]</div>
       <div class="grid-item" id="TM">TM: [0][1]</div>
@@ -21,11 +28,19 @@
       <div class="grid-item" id="BR">BR: [2][2]</div>  
       <!--CSS Selector:  #gameBoard > div > div.grid-item.MM -->
     </div>
+    <div id="user-controls">
     <form>
       <button id="find-winnner" style="text-align:center;" type="button">Check Winner</button>
       <button id="reset-board" style="text-align:center;" type="button">Reset Game</button>
       <button id="random-move" style="text-align:center;" type="button">CPU Move</button>
     </form>
+  </div>
+  <div id="message-output">
+    <p id="game-status">Game in progress</p>
+    <p id="game-turn">Game Turn: 0</p>
+    <p id="player-one-score">Player 1 Score: 0</p>
+    <p id="player-two-score">Player 2 Score: 0</p>
+  </div>
   <script src="js/index.js"></script>
   </body>
 </html>
