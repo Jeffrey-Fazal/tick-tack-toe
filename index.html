@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
   </head>
-  <body></body>
+  <body>
     <div class="grid-container">
       <div class="grid-item" id="TL">TL: [0][0]</div>
       <div class="grid-item" id="TM">TM: [0][1]</div>
@@ -21,9 +21,11 @@
       <div class="grid-item" id="BR">BR: [2][2]</div>  
       <!--CSS Selector:  #gameBoard > div > div.grid-item.MM -->
     </div>
-    <!-- <form>
-      <button onclick="debug('gameBoard1','basic')" style="text-align:center;" type="button">Debug</button>
-    </form> -->
+    <form>
+      <button id="find-winnner" style="text-align:center;" type="button">Check Winner</button>
+      <button id="reset-board" style="text-align:center;" type="button">Reset Game</button>
+      <button id="random-move" style="text-align:center;" type="button">CPU Move</button>
+    </form>
   <script src="js/index.js"></script>
   </body>
 </html>
