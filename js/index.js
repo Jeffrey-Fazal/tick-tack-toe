@@ -77,16 +77,18 @@ function refreshBoard() {
     ]
     selectedBoard = reset
     scorePlayerOne = 0
+    playerOneDOM.innerHTML = `Player 1 Score ${scorePlayerOne}`
     scorePlayerTwo = 0
-    mm.innerHTML = ""
-    tl.innerHTML = ""
-    tm.innerHTML = ""
-    tr.innerHTML = ""
-    ml.innerHTML = ""
-    mr.innerHTML = ""
-    bl.innerHTML = ""
-    bm.innerHTML = ""
-    br.innerHTML = ""
+    playerTwoDOM.innerHTML = `Player 2 Score ${scorePlayerTwo}`
+    mm.innerHTML = "MM: [1][1]"
+    tl.innerHTML = "TL: [0][0]"
+    tm.innerHTML = "TM: [0][1]"
+    tr.innerHTML = "TR: [0][2]"
+    ml.innerHTML = "ML: [1][0]"
+    mr.innerHTML = "MR: [1][2]"
+    bl.innerHTML = "BL: [2][0]"
+    bm.innerHTML = "BM: [2][1]"
+    br.innerHTML = "BR: [2][2]"
     console.log('refreshboard()')
 }
 
@@ -97,11 +99,11 @@ function endGame(winner) {
     if (winner === playerOneToken){
         win.innerHTML = `Game over, congrats ${playerOneToken}`
         scorePlayerOne++
-        playerOneDOM.innerHTML = `Player 1 Score ${scorePlayerOne++}`
+        playerOneDOM.innerHTML = `Player 1 Score ${scorePlayerOne}`
      } else if (winner === playerTwoToken) {
         win.innerHTML = `Game over, congrats ${playerTwoToken}`
         scorePlayerTwo++
-        playerTwoDOM.innerHTML = `Player 2 Score ${scorePlayerTwo++}`
+        playerTwoDOM.innerHTML = `Player 2 Score ${scorePlayerTwo}`
     }else {
         console.log('You have found a bug')
         debug(selectedBoard,'info')
