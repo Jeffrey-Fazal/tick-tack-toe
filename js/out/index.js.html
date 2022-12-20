@@ -1,4 +1,32 @@
-/**
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: index.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: index.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
  * Gameboard for tested
  */
 let gameBoard = [
@@ -85,52 +113,52 @@ function refreshBoard() {
  * @returns true (represents it's now players turn)
  */
 function findWinner(board) {
-    if (board[0][0] === 'x' && board[0][1] === 'x' && board[0][2] === 'x') {
+    if (board[0][0] === 'x' &amp;&amp; board[0][1] === 'x' &amp;&amp; board[0][2] === 'x') {
         console.log('x wins : Top Row')
         return true
-    } else if (board[0][0] === 'o' && board[0][1] === 'o' && board[0][2] === 'o') {
+    } else if (board[0][0] === 'o' &amp;&amp; board[0][1] === 'o' &amp;&amp; board[0][2] === 'o') {
         console.log('o wins : Top Row')
         return true
-    } else if (board[1][0] === 'o' && board[1][1] === 'o' && board[1][2] === 'o') {
+    } else if (board[1][0] === 'o' &amp;&amp; board[1][1] === 'o' &amp;&amp; board[1][2] === 'o') {
         console.log('o wins : Middle Row')
         return true
-    } else if (board[1][0] === 'x' && board[1][1] === 'x' && board[1][2] === 'x') {
+    } else if (board[1][0] === 'x' &amp;&amp; board[1][1] === 'x' &amp;&amp; board[1][2] === 'x') {
         console.log('x wins : Middle Row')
         return true
-    } else if (board[2][0] === 'x' && board[2][1] === 'x' && board[2][2] === 'x') {
+    } else if (board[2][0] === 'x' &amp;&amp; board[2][1] === 'x' &amp;&amp; board[2][2] === 'x') {
         console.log('x wins  : Bottom Row')
         return true
-    } else if (board[2][0] === 'o' && board[2][1] === 'o' && board[2][2] === 'o') {
+    } else if (board[2][0] === 'o' &amp;&amp; board[2][1] === 'o' &amp;&amp; board[2][2] === 'o') {
         console.log('o wins : Bottom Row')
         return true
-    } else if (board[0][0] === 'x' && board[1][1] === 'x' && board[2][2] === 'x') {
+    } else if (board[0][0] === 'x' &amp;&amp; board[1][1] === 'x' &amp;&amp; board[2][2] === 'x') {
         console.log('x wins  : Left Diagonal')
         return true
-    } else if (board[0][0] === 'o' && board[1][1] === 'o' && board[2][2] === 'o') {
+    } else if (board[0][0] === 'o' &amp;&amp; board[1][1] === 'o' &amp;&amp; board[2][2] === 'o') {
         console.log('o wins  : Left Diagonal')
         return true
-    } else if (board[0][2] === 'o' && board[1][1] === 'o' && board[2][0] === 'o') {
+    } else if (board[0][2] === 'o' &amp;&amp; board[1][1] === 'o' &amp;&amp; board[2][0] === 'o') {
         console.log('o wins : Right Diagonal')
         return true
-    } else if (board[0][2] === 'x' && board[1][1] === 'x' && board[2][0] === 'x') {
+    } else if (board[0][2] === 'x' &amp;&amp; board[1][1] === 'x' &amp;&amp; board[2][0] === 'x') {
         console.log('x wins : Right Diagonal')
         return true
-    } else if (board[0][1] === 'x' && board[1][1] === 'x' && board[2][1] === 'x') {
+    } else if (board[0][1] === 'x' &amp;&amp; board[1][1] === 'x' &amp;&amp; board[2][1] === 'x') {
         console.log('x wins : Middle Down')
         return true
-    } else if (board[0][1] === 'o' && board[1][1] === 'o' && board[2][1] === 'o') {
+    } else if (board[0][1] === 'o' &amp;&amp; board[1][1] === 'o' &amp;&amp; board[2][1] === 'o') {
         console.log('o wins : Middle Down')
         return true
-    } else if (board[0][0] === 'x' && board[1][0] === 'x' && board[2][0] === 'x') {
+    } else if (board[0][0] === 'x' &amp;&amp; board[1][0] === 'x' &amp;&amp; board[2][0] === 'x') {
         console.log('x wins : Left Down')
         return true
-    } else if (board[0][0] === 'o' && board[1][0] === 'o' && board[2][0] === 'o') {
+    } else if (board[0][0] === 'o' &amp;&amp; board[1][0] === 'o' &amp;&amp; board[2][0] === 'o') {
         console.log('o wins : Left Down')
         return true
-    } else if (board[0][2] === 'x' && board[1][2] === 'x' && board[2][2] === 'x') {
+    } else if (board[0][2] === 'x' &amp;&amp; board[1][2] === 'x' &amp;&amp; board[2][2] === 'x') {
         console.log('x wins : Right Down')
         return true
-    } else if (board[0][2] === 'o' && board[1][2] === 'o' && board[2][2] === 'o') {
+    } else if (board[0][2] === 'o' &amp;&amp; board[1][2] === 'o' &amp;&amp; board[2][2] === 'o') {
         console.log('o wins : Right Down')
         return true
     } else { console.log('Draw/Continue') }
@@ -185,7 +213,7 @@ function boardClick(grid, board, playerToken, start) {
             console.log(`played on ${grid} (switch function)`)
             mm.innerHTML = playerToken
             turnPlayer = true
-            // return turnPlayer
+            return turnPlayer
         case 'TL':
             board[0][0] = playerToken
             console.log(`played on ${grid} (switch function)`)
@@ -237,28 +265,25 @@ function boardClick(grid, board, playerToken, start) {
         default:
             console.log('Click area not defined')
             return turnPlayer = null
-    }// check if winner and computer makes a move?
-    console.log(`boardClick Output:: turnPlayer = ` + turn)
+    }console.log(`boardClick Output:: turnPlayer = ` + turn)
 }
 /**
  * The loop which starts and ends the gameplay
- * @param {boolean} 
  * @returns score (future)
  */
-
-// function gameStart(turn) {
-//     for (let i = 0; i < 9; i++) {
-//         x = findWinner(selectedBoard)
-//         if (x === true) {
-//             console.log(`Game over on loop ${i} condition ${x}`)
-//             return
-//         } if (turnPlayer === true) {
-//             randomChoice(selectedBoard, playerTwoToken)
-//             console.log(`gamestart output: turnPlayer = ${turnPlayer}`)
-//             turnPlayer = false
-//         } console.log('broken out of loop')
-//     }
-// }
+function gameStart() {
+    for (let i = 0; i &lt; 9; i++) {
+        x = findWinner(selectedBoard)
+        if (x === true) {
+            console.log(`Game over on loop ${i} condition ${x}`)
+            return
+        } if (turnPlayer === true) {
+            randomChoice(selectedBoard, playerTwoToken)
+            console.log(`gamestart output: turnPlayer = ${turnPlayer}`)
+            turnPlayer = false
+        } console.log('broken out of loop')
+    }
+}
 
 /**
  * 
@@ -303,4 +328,26 @@ btnRandomMove.addEventListener("click", randomChoice.bind(this, selectedBoard, p
 // Start debug Functions
 // debug(selectedBoard,'info')
 
-// gameStart()
+gameStart()</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#boardClick">boardClick</a></li><li><a href="global.html#boardMap">boardMap</a></li><li><a href="global.html#debug">debug</a></li><li><a href="global.html#findWinner">findWinner</a></li><li><a href="global.html#gameBoard">gameBoard</a></li><li><a href="global.html#gameStart">gameStart</a></li><li><a href="global.html#newGameBoard">newGameBoard</a></li><li><a href="global.html#playerOneToken">playerOneToken</a></li><li><a href="global.html#randomChoice">randomChoice</a></li><li><a href="global.html#randomThreebyThree">randomThreebyThree</a></li><li><a href="global.html#refreshBoard">refreshBoard</a></li><li><a href="global.html#scorePlayerOne">scorePlayerOne</a></li><li><a href="global.html#selectedBoard">selectedBoard</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Tue Dec 20 2022 16:07:37 GMT+1100 (Australian Eastern Daylight Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
