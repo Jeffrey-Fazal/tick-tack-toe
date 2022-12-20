@@ -79,59 +79,59 @@ function refreshBoard() {
     console.log('refreshboard()')
 }
 
-/**
+/**'))
  * Find out if a player or CPU has won (token is hardcoded)
  * @param {array} board The gameboard
- * @returns true (represents it's now players turn)
+ * @returns true (represents that the game is over)
  */
-function findWinner(board) {
-    if (board[0][0] === 'x' && board[0][1] === 'x' && board[0][2] === 'x') {
-        console.log('x wins : Top Row')
+ function findWinner(board) {
+    if (board[0][0] === playerOneToken && board[0][1] === playerOneToken && board[0][2] === playerOneToken) {
+        console.log(`${playerOneToken} : Top Row`)
         return true
-    } else if (board[0][0] === 'o' && board[0][1] === 'o' && board[0][2] === 'o') {
-        console.log('o wins : Top Row')
+    } else if (board[0][0] === playerTwoToken && board[0][1] === playerTwoToken && board[0][2] === playerTwoToken) {
+        console.log(`${playerTwoToken} wins : Top Row`)
         return true
-    } else if (board[1][0] === 'o' && board[1][1] === 'o' && board[1][2] === 'o') {
-        console.log('o wins : Middle Row')
+    } else if (board[1][0] === playerTwoToken && board[1][1] === playerTwoToken && board[1][2] === playerTwoToken) {
+        console.log(`${playerTwoToken} wins : Middle Row`)
         return true
-    } else if (board[1][0] === 'x' && board[1][1] === 'x' && board[1][2] === 'x') {
-        console.log('x wins : Middle Row')
+    } else if (board[1][0] === playerOneToken && board[1][1] === playerOneToken && board[1][2] === playerOneToken) {
+        console.log(`${playerOneToken} wins : Middle Row`)
         return true
-    } else if (board[2][0] === 'x' && board[2][1] === 'x' && board[2][2] === 'x') {
-        console.log('x wins  : Bottom Row')
+    } else if (board[2][0] === playerOneToken && board[2][1] === playerOneToken && board[2][2] === playerOneToken) {
+        console.log(`${playerOneToken}  wins : Bottom Row`)
         return true
-    } else if (board[2][0] === 'o' && board[2][1] === 'o' && board[2][2] === 'o') {
-        console.log('o wins : Bottom Row')
+    } else if (board[2][0] === playerTwoToken && board[2][1] === playerTwoToken && board[2][2] === playerTwoToken) {
+        console.log(`${playerTwoToken} wins : Bottom Row`)
         return true
-    } else if (board[0][0] === 'x' && board[1][1] === 'x' && board[2][2] === 'x') {
-        console.log('x wins  : Left Diagonal')
+    } else if (board[0][0] === playerOneToken && board[1][1] === playerOneToken && board[2][2] === playerOneToken) {
+        console.log(`${playerOneToken}  wins : Left Diagonal`)
         return true
-    } else if (board[0][0] === 'o' && board[1][1] === 'o' && board[2][2] === 'o') {
-        console.log('o wins  : Left Diagonal')
+    } else if (board[0][0] === playerTwoToken && board[1][1] === playerTwoToken && board[2][2] === playerTwoToken) {
+        console.log(`${playerTwoToken} wins  : Left Diagonal`)
         return true
-    } else if (board[0][2] === 'o' && board[1][1] === 'o' && board[2][0] === 'o') {
-        console.log('o wins : Right Diagonal')
+    } else if (board[0][2] === playerTwoToken && board[1][1] === playerTwoToken && board[2][0] === playerTwoToken) {
+        console.log(`${playerTwoToken} wins : Right Diagonal`)
         return true
-    } else if (board[0][2] === 'x' && board[1][1] === 'x' && board[2][0] === 'x') {
-        console.log('x wins : Right Diagonal')
+    } else if (board[0][2] === playerOneToken && board[1][1] === playerOneToken && board[2][0] === playerOneToken) {
+        console.log(`${playerOneToken} wins : Right Diagonal`)
         return true
-    } else if (board[0][1] === 'x' && board[1][1] === 'x' && board[2][1] === 'x') {
-        console.log('x wins : Middle Down')
+    } else if (board[0][1] === playerOneToken && board[1][1] === playerOneToken && board[2][1] === playerOneToken) {
+        console.log(`${playerOneToken} wins : Middle Down`)
         return true
-    } else if (board[0][1] === 'o' && board[1][1] === 'o' && board[2][1] === 'o') {
-        console.log('o wins : Middle Down')
+    } else if (board[0][1] === playerTwoToken && board[1][1] === playerTwoToken && board[2][1] === playerTwoToken) {
+        console.log(`${playerTwoToken} wins : Middle Down`)
         return true
-    } else if (board[0][0] === 'x' && board[1][0] === 'x' && board[2][0] === 'x') {
-        console.log('x wins : Left Down')
+    } else if (board[0][0] === playerOneToken && board[1][0] === playerOneToken && board[2][0] === playerOneToken) {
+        console.log(`${playerOneToken} wins : Left Down`)
         return true
-    } else if (board[0][0] === 'o' && board[1][0] === 'o' && board[2][0] === 'o') {
-        console.log('o wins : Left Down')
+    } else if (board[0][0] === playerTwoToken && board[1][0] === playerTwoToken && board[2][0] === playerTwoToken) {
+        console.log(`${playerTwoToken} wins : Left Down`)
         return true
-    } else if (board[0][2] === 'x' && board[1][2] === 'x' && board[2][2] === 'x') {
-        console.log('x wins : Right Down')
+    } else if (board[0][2] === playerOneToken && board[1][2] === playerOneToken && board[2][2] === playerOneToken) {
+        console.log(`${playerOneToken} wins : Right Down`)
         return true
-    } else if (board[0][2] === 'o' && board[1][2] === 'o' && board[2][2] === 'o') {
-        console.log('o wins : Right Down')
+    } else if (board[0][2] === playerTwoToken && board[1][2] === playerTwoToken && board[2][2] === playerTwoToken) {
+        console.log(`${playerTwoToken} wins : Right Down`)
         return true
     } else { console.log('Draw/Continue') }
     return false
@@ -152,52 +152,44 @@ function randomThreebyThree() {
 function randomChoice(board, playerToken) {
     index1 = randomThreebyThree()
     index2 = randomThreebyThree()
-    console.log(`First random indexes: ${playerToken}: [${index1}] [${index2}]`)
     while (board[index1][index2] !== null) {
-        console.log('reroll')
         index1 = randomThreebyThree()
         index2 = randomThreebyThree()
-        console.log(`New roll [${index1}] [${index2}]`)
     }
     board[index1][index2] = playerToken
     console.log(`Played on [${index1}] [${index2}]`)
     gridItem = boardMap[index1][index2]
-    console.log(`grid item: ${gridItem}`)
     boardClick(gridItem, selectedBoard, playerTwoToken)
-    turnPlayer = true
+    turnPlayer = false
 }
 /**
  * Triggers when a user clicks and plays a token 
  * @param {string} grid The grid cordinates expresses as a string
  * @param {array} board The gameboard
  * @param {string} playerToken  The players token
- * @param {*} start Unused
  * @returns true/false (representing the players turn)
  */
-function boardClick(grid, board, playerToken, start) {
-    msg = `${grid} clicked`
-    console.log(msg)
-    let move = grid
+function boardClick(grid, board, playerToken) {
     turn = false
-    switch (move) {
+    switch (grid) {
         case 'MM':
             board[1][1] = playerToken
             console.log(`played on ${grid} (switch function)`)
             mm.innerHTML = playerToken
             turnPlayer = true
-            // return turnPlayer
+            break
         case 'TL':
             board[0][0] = playerToken
             console.log(`played on ${grid} (switch function)`)
             tl.innerHTML = playerToken
-            turnPlayer = turn
-            return turnPlayer
+            turnPlayer = true
+            break
         case 'TM':
             board[0][1] = playerToken
             console.log(`played on ${grid} (switch function)`)
             tm.innerHTML = playerToken
             turnPlayer = turn
-            return turnPlayer
+            break
         case 'TR':
             board[0][2] = playerToken
             console.log(`played on ${grid} (switch function)`)
@@ -240,25 +232,7 @@ function boardClick(grid, board, playerToken, start) {
     }// check if winner and computer makes a move?
     console.log(`boardClick Output:: turnPlayer = ` + turn)
 }
-/**
- * The loop which starts and ends the gameplay
- * @param {boolean} 
- * @returns score (future)
- */
 
-// function gameStart(turn) {
-//     for (let i = 0; i < 9; i++) {
-//         x = findWinner(selectedBoard)
-//         if (x === true) {
-//             console.log(`Game over on loop ${i} condition ${x}`)
-//             return
-//         } if (turnPlayer === true) {
-//             randomChoice(selectedBoard, playerTwoToken)
-//             console.log(`gamestart output: turnPlayer = ${turnPlayer}`)
-//             turnPlayer = false
-//         } console.log('broken out of loop')
-//     }
-// }
 
 /**
  * 
@@ -266,7 +240,7 @@ function boardClick(grid, board, playerToken, start) {
  * @param {string} level Level of infomation required
  */
 function debug(board, level) {
-    if (level === 'basic') {
+    if (level !== 'info') {
         console.table(board)
     } else {
         console.table(board)
@@ -285,15 +259,15 @@ function debug(board, level) {
 }
 
 // Grid Event Listners
-mm.addEventListener("click", boardClick.bind(this, 'MM', selectedBoard, 'x'), false)
-tl.addEventListener("click", boardClick.bind(this, 'TL', selectedBoard, 'x'), false)
-tm.addEventListener("click", boardClick.bind(this, 'TM', selectedBoard, 'x'), false)
-tr.addEventListener("click", boardClick.bind(this, 'TR', selectedBoard, 'x'), false)
-ml.addEventListener("click", boardClick.bind(this, 'ML', selectedBoard, 'x'), false)
-mr.addEventListener("click", boardClick.bind(this, 'MR', selectedBoard, 'x'), false)
-bl.addEventListener("click", boardClick.bind(this, 'BL', selectedBoard, 'x'), false)
-bm.addEventListener("click", boardClick.bind(this, 'BM', selectedBoard, 'x'), false)
-br.addEventListener("click", boardClick.bind(this, 'BR', selectedBoard, 'x'), false)
+mm.addEventListener("click", boardClick.bind(this, 'MM', selectedBoard, playerOneToken), false)
+tl.addEventListener("click", boardClick.bind(this, 'TL', selectedBoard, playerOneToken), false)
+tm.addEventListener("click", boardClick.bind(this, 'TM', selectedBoard, playerOneToken), false)
+tr.addEventListener("click", boardClick.bind(this, 'TR', selectedBoard, playerOneToken), false)
+ml.addEventListener("click", boardClick.bind(this, 'ML', selectedBoard, playerOneToken), false)
+mr.addEventListener("click", boardClick.bind(this, 'MR', selectedBoard, playerOneToken), false)
+bl.addEventListener("click", boardClick.bind(this, 'BL', selectedBoard, playerOneToken), false)
+bm.addEventListener("click", boardClick.bind(this, 'BM', selectedBoard, playerOneToken), false)
+br.addEventListener("click", boardClick.bind(this, 'BR', selectedBoard, playerOneToken), false)
 
 // Button Event Listners 
 btnWinner.addEventListener("click", findWinner.bind(this, selectedBoard), false)
@@ -301,6 +275,4 @@ btnReset.addEventListener("click", refreshBoard.bind(this, selectedBoard), false
 btnRandomMove.addEventListener("click", randomChoice.bind(this, selectedBoard, playerTwoToken), false)
 
 // Start debug Functions
-// debug(selectedBoard,'info')
-
-// gameStart()
+debug(selectedBoard)
