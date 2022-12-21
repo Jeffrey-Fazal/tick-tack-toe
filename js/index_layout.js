@@ -82,15 +82,15 @@ function refreshBoard(newGame) {
     playerOneDOM.innerHTML = `Player 1 Score ${scorePlayerOne}`
     scorePlayerTwo = 0
     playerTwoDOM.innerHTML = `Player 2 Score ${scorePlayerTwo}`
-    mm.innerHTML = "MM: [1][1]"
-    tl.innerHTML = "TL: [0][0]"
-    tm.innerHTML = "TM: [0][1]"
-    tr.innerHTML = "TR: [0][2]"
-    ml.innerHTML = "ML: [1][0]"
-    mr.innerHTML = "MR: [1][2]"
-    bl.innerHTML = "BL: [2][0]"
-    bm.innerHTML = "BM: [2][1]"
-    br.innerHTML = "BR: [2][2]"
+    mm.innerHTML = ""
+    tl.innerHTML = ""
+    tm.innerHTML = ""
+    tr.innerHTML = ""
+    ml.innerHTML = ""
+    mr.innerHTML = ""
+    bl.innerHTML = ""
+    bm.innerHTML = ""
+    br.innerHTML = ""
     console.log('refreshboard()')
     console.log(`new game = y ${scorePlayerOne}`)
 } else if (newGame === false){
@@ -105,15 +105,15 @@ function refreshBoard(newGame) {
     playerOneDOM.innerHTML = `Player 1 Score ${scorePlayerOne}`
     console.log(`new game = n ${scorePlayerOne}`)
     playerTwoDOM.innerHTML = `Player 2 Score ${scorePlayerTwo}`
-    mm.innerHTML = "MM: [1][1]"
-    tl.innerHTML = "TL: [0][0]"
-    tm.innerHTML = "TM: [0][1]"
-    tr.innerHTML = "TR: [0][2]"
-    ml.innerHTML = "ML: [1][0]"
-    mr.innerHTML = "MR: [1][2]"
-    bl.innerHTML = "BL: [2][0]"
-    bm.innerHTML = "BM: [2][1]"
-    br.innerHTML = "BR: [2][2]"
+    mm.innerHTML = ""
+    tl.innerHTML = ""
+    tm.innerHTML = ""
+    tr.innerHTML = ""
+    ml.innerHTML = ""
+    mr.innerHTML = ""
+    bl.innerHTML = ""
+    bm.innerHTML = ""
+    br.innerHTML = ""
 }
 }
 
@@ -251,56 +251,73 @@ function boardClick(grid, board, playerToken) {
             board[1][1] = playerToken
             console.log(`played on ${grid} (switch function)`)
             mm.innerHTML = playerToken
-            turnPlayer = true
+            turnPlayer = turn
+            findWinner(selectedBoard)
+            randomChoice(selectedBoard,playerTwoToken)
+
             break
         case 'TL':
             board[0][0] = playerToken
             console.log(`played on ${grid} (switch function)`)
             tl.innerHTML = playerToken
-            turnPlayer = true
+            turnPlayer = turn
+            findWinner(selectedBoard)
+            randomChoice(selectedBoard,playerTwoToken)
             break
         case 'TM':
             board[0][1] = playerToken
             console.log(`played on ${grid} (switch function)`)
             tm.innerHTML = playerToken
             turnPlayer = turn
+            findWinner(selectedBoard)
+            randomChoice(selectedBoard,playerTwoToken)
             break
         case 'TR':
             board[0][2] = playerToken
             console.log(`played on ${grid} (switch function)`)
             tr.innerHTML = playerToken
             turnPlayer = turn
-            return turnPlayer
+            findWinner(selectedBoard)
+            randomChoice(selectedBoard,playerTwoToken)
+            break
         case 'ML':
             board[1][0] = playerToken
             console.log(`played on ${grid} (switch function)`)
             ml.innerHTML = playerToken
             turnPlayer = turn
-            return turnPlayer
+            findWinner(selectedBoard)
+            randomChoice(selectedBoard,playerTwoToken)
+            break
         case 'MR':
             board[1][2] = playerToken
             console.log(`played on ${grid} (switch function)`)
             mr.innerHTML = playerToken
             turnPlayer = turn
-            return turnPlayer
+            findWinner(selectedBoard)
+            randomChoice(selectedBoard,playerTwoToken)
         case 'BL':
             board[2][0] = playerToken
             console.log(`played on ${grid} (switch function)`)
             bl.innerHTML = playerToken
             turnPlayer = turn
-            return turnPlayer
+            findWinner(selectedBoard)
+            randomChoice(selectedBoard,playerTwoToken)
+            break
         case 'BM':
             board[2][1] = playerToken
             console.log(`played on ${grid} (switch function)`)
             bm.innerHTML = playerToken
             turnPlayer = turn
-            return turnPlayer
+            findWinner(selectedBoard)
+            randomChoice(selectedBoard,playerTwoToken)
+            break
         case 'BR':
             board[2][2] = playerToken
             console.log(`played on ${grid} (switch function)`)
             br.innerHTML = playerToken
             turnPlayer = turn
-            return turnPlayer
+            findWinner(selectedBoard)
+            randomChoice(selectedBoard,playerTwoToken)
         default:
             console.log('Click area not defined')
             return turnPlayer = null
