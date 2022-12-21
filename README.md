@@ -4,9 +4,6 @@
 
 A tick tack toe game created with HTML, CSS and Javascript. Playable within a browser.
 
-- technologies used, the approach taken, links to or embedded screenshots of the planning process, installation instructions (if any), unsolved problems, any other useful information etc.
-- At least one artifact of either pseudocode, flow diagram, wireframe demonstrating planning embedded in the `README.md`.
-
 ## Technology Stack
 
 * HTML
@@ -17,7 +14,7 @@ A tick tack toe game created with HTML, CSS and Javascript. Playable within a br
 
 * Jsdocs
 
-## Approach
+## Planned Approach
 
 1. Prototype design and create naming convention
 
@@ -29,14 +26,14 @@ A tick tack toe game created with HTML, CSS and Javascript. Playable within a br
    3. 
 3. Create base HTML elements and DOM structure
 4. Break project into smaller parts
-   1. HTML/CSS design - barebones
-   2. JS: Think about the setup, storing variables etc
+   1. **HTML/CSS design** - barebones
+   2. **Java Script** Think about the setup, storing variables etc
       1. Add event listeners to each part of the grid
       2. Create a  simple script to alternate between tick and toe icons
       3. Make the underlying logic that you can't click on a grid that has already been played
       4. Identifying a win and loose condition.
       5. Show win or loose
-   3. Time to get fancy. Add extra features including: 
+   3. **Goals**
       1. Win counter
       2. Higlight the grid that is about to be played
       3. Animate the cpu last move (shake the token) 
@@ -48,16 +45,61 @@ A tick tack toe game created with HTML, CSS and Javascript. Playable within a br
       9. Changing the board (expanding grid and custom avatars)
       10. Document code code with JS code
 
+## Project Features
+
+* Simple responsive design
+
+* Win counters
+
+* Basic AI
+
+* Win counter
+
+* Audio for clicks
+
+* Reset button
+
 ## Installation instruction
 
 ```
-Copy repo
-Upload to server
-Browser to directory 
+Clone repo: git clone  https://github.com/Jeffrey-Fazal/tick-tack-toe
+Upload to server via SFTP
+Browse to directory in browser
 ```
 
-This project can also be viewed at: 
+This project can also be viewed at: <link pending> 
 
-## Bug reporting
+## Bug reporting & Feature requests
 
-Open an issue in the repo to report bugs
+Submit an issue at [tick-tack-toe github repo](https://github.com/Jeffrey-Fazal/tick-tack-toe/issues/new).
+
+Use the label enhancement for feature requests 
+
+When submitting an issue:
+
+* Include the device and browser where the issue occured
+* What steps can be done to reproduce the issue
+
+## Credits
+
+### Audio
+
+* [FF7 Cursor - Instant Sound Effect Button | Myinstants](https://www.myinstants.com/en/instant/ff7-cursor-11139/)
+
+* [tidus' laugh (japanese) - Instant Sound Effect Button | Myinstants](https://www.myinstants.com/en/instant/tidus-laugh-japanese/)
+
+* [Final Fantasy Level Up! - Instant Sound Effect Button | Myinstants](https://www.myinstants.com/en/instant/final-fantasy-level-up-27603/)
+
+### Icons
+
+* [Check mark icon, SVG and PNG | Game-icons.net](https://game-icons.net/1x1/delapouite/check-mark.html)
+
+* [Cancel icon, SVG and PNG | Game-icons.net](https://game-icons.net/1x1/sbed/cancel.html)
+
+* [Conway Game of Life Glider icon, SVG and PNG | Game-icons.net](https://game-icons.net/1x1/delapouite/conway-life-glider.html)
+
+### Layout
+
+* [W3C Schools CSS Grid](https://www.w3schools.com/css/css_grid.asp)
+
+* [CSS Grid Generator](https://grid.layoutit.com/?id=uU0QCoF)

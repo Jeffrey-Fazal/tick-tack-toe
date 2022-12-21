@@ -1,17 +1,51 @@
+body {
+  background-color: #04081A;
+  color: grey;
+}
+.container {  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto 1fr auto;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    ". Info ."
+    "left-aside Board right-aside"
+    ". Options .";
+}
+
+.Info { grid-area: Info; }
+
+.Board { grid-area: Board; }
+
+.Options { grid-area: Options; }
+
+.right-aside { grid-area: right-aside; }
+
+.left-aside { grid-area: left-aside; }
+/* created with https://grid.layoutit.com/?id=SQUOdXw*/
+
 .grid-container {
-    display: grid;
-    grid-template-columns: auto auto auto;
-    background-color: #2196F3;
-    padding: 10px;
-  }
-  .grid-item {
-    background-color: rgba(255, 255, 255, 1);
-    border: 1px solid rgba(0, 0, 0, 0.8);
-    padding: 20px;
-    font-size: 30px;
-    text-align: center;
-  }
-  /* #MM:hover {
-    background-color: red;
-  } */
-  /* CSS Grid Style from https://www.w3schools.com/css/tryit.asp?filename=trycss_grid */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  background-color: #2196F3;
+  padding: 10px;
+}
+
+.grid-item {
+  background-color: rgba(255, 255, 255, 1);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 60px;
+  font-size: 45px;
+  text-align: center;
+}
+#player-one-score,#player-two-score  {
+  border: solid;
+  padding: 2px;
+}
+
+#game-scores{
+  border:solid;
+  padding: 10px;
+  text-align: center;
+  margin: 10px;
+}

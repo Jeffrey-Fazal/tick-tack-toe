@@ -1,50 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Tick Tack Toe</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-  </head>
-  <body>
-    <h1>Tick, Tack Toe</h1>
-    <div id="intro">
-      <p>Instructions:</p>
-      <p><ul>
-          <li>Human clicks on the board</li>
-          <li>Generate a random play by clicking CPU move</li>
-          <li>Feature: clicking the CPU move to fast will crash the browser<br />
-          Make sure you pay attention to the game</li>
-          <li>Check the winner to find out who wins</li>
-      </ul></p>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Tick Tack Toe</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+
+<body>
+<div class="container">
+  <div class="Info">
+  <h1>Tick Tack & Toe </h1>
+    <div id="game-stats">
+      <p id="game-status">Game in progress</p>
+      <p id="game-turn">Game Turn: <span id="game-counter">0</span></p>
     </div>
-    <div class="grid-container">
-      <div class="grid-item" id="TL">TL: [0][0]</div>
-      <div class="grid-item" id="TM">TM: [0][1]</div>
-      <div class="grid-item" id="TR">TR: [0][2]</div>  
-      <div class="grid-item" id="ML">ML: [1][0]</div>
-      <div class="grid-item" id="MM">MM: [1][1]</div>
-      <div class="grid-item" id="MR">MR: [1][2]</div>  
-      <div class="grid-item" id="BL">BL: [2][0]</div>
-      <div class="grid-item" id="BM">BM: [2][1]</div>
-      <div class="grid-item" id="BR">BR: [2][2]</div>  
-      <!--CSS Selector:  #gameBoard > div > div.grid-item.MM -->
+    <div id="game-scores">
+      <span>Player 1</span><span id="player-one-score">0</span>
+      <span>Player 2 </span><span id="player-two-score">0</span>
     </div>
-    <div id="user-controls">
-    <form>
-      <button id="find-winnner" style="text-align:center;" type="button">Check Winner</button>
-      <button id="reset-board" style="text-align:center;" type="button">Reset Game</button>
-      <button id="random-move" style="text-align:center;" type="button">CPU Move</button>
-    </form>
+    </div>
+  <div class="Board">
+        <div class="grid-container">
+      <div class="grid-item" id="TL"></div>
+      <div class="grid-item" id="TM"></div>
+      <div class="grid-item" id="TR"></div>  
+      <div class="grid-item" id="ML"></div>
+      <div class="grid-item" id="MM"></div>
+      <div class="grid-item" id="MR"></div>  
+      <div class="grid-item" id="BL"></div>
+      <div class="grid-item" id="BM"></div>
+      <div class="grid-item" id="BR"></div>  
+    </div>
+    </div>
+  <div class="Options">
+      <button id="reset-board" type="button">Reset Game</button>
+      
+      </div>
+  <div class="right-aside">
   </div>
-  <div id="message-output">
-    <p id="game-status">Game in progress</p>
-    <p id="game-turn">Game Turn: 0</p>
-    <p id="player-one-score">Player 1 Score: 0</p>
-    <p id="player-two-score">Player 2 Score: 0</p>
-  </div>
+  <div class="left-aside"></div>
+</div>
+
   <script src="js/index.js"></script>
-  </body>
+</body>
+
 </html>
