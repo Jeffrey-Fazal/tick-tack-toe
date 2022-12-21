@@ -1,3 +1,7 @@
+body {
+  background-color: #04081A;
+  color: grey;
+}
 .container {  display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: auto 1fr auto;
@@ -44,5 +48,4 @@
   padding: 10px;
   text-align: center;
   margin: 10px;
-}
 }
