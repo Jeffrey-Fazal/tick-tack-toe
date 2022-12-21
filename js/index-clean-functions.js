@@ -1,69 +1,55 @@
-/**
- * Blank gameboard, used to rest the game
- */
  let newGameBoard = [
     [null, null, null],
     [null, null, null],
     [null, null, null]
 ]
-/**
- * Map out the array to grid cordinates to array points
- */
 let boardMap = [
     ['TL', 'TM', 'TR'],
     ['ML', 'MM', 'MR'],
     ['BL', 'BM', 'BR']
 ]
-/**
- * Assigns selectedBoard to whichever board you want to start with
- */
 let selectedBoard = newGameBoard
-/**
- * Variables to keep track of a players ones score
- */
+
 let scorePlayerOne = 0
-/**
- * Variables to keep track of a players twos score
- */
 let scorePlayerTwo = 0
-/**
- * Uses a text representation of the players token (set to x)
- */
+
 let playerOneToken = 'x'
-/**
- * Uses a text representation of the players token (set to o)
- */
 let playerTwoToken = 'o'
-/**
- * Shows who's turn it is (true = playOne)
- */
+
 let playerOneTurn = true
-/**
- * Starts the turn counter at 0
- */
+
 let turn = 0
-// Event listeners for gameboard grids
-const mm = document.querySelector("#MM")
+
+// Define gameBoard grid
 const tl = document.querySelector("#TL")
 const tm = document.querySelector("#TM")
 const tr = document.querySelector("#TR")
 const ml = document.querySelector("#ML")
+const mm = document.querySelector("#MM")
 const mr = document.querySelector("#MR")
 const bl = document.querySelector("#BL")
 const bm = document.querySelector("#BM")
 const br = document.querySelector("#BR")
-// Event listners for buttons
+// Define buttons
 const btnWinner = document.querySelector('#find-winnner')
 const btnReset = document.querySelector('#reset-board')
-const btnRandomMove = document.querySelector('#random-move')
-// Event listeners for output
+// const btnRandomMove = document.querySelector('#random-move')
+// Define objects for output
 let win = document.querySelector("#game-status")
 let domTurn = document.querySelector("#game-status")
 let playerOneDOM = document.querySelector("#player-one-score")
 let playerTwoDOM = document.querySelector("#player-two-score")
-/**
- * Resets the board back to default placeholders
- */
+let gameCount = document.querySelector("#game-counter")
+
+const click = new Audio('audio/click.mp3');
+
+function turnCounter() {
+    turn = turn + 1
+    gameCount.innerHTML = turn
+    click.play()
+    winCondition()
+}
+
 function boardReset() {
     let resetBoard = [
         [null, null, null],
@@ -71,7 +57,6 @@ function boardReset() {
         [null, null, null]
     ]
     selectedBoard = resetBoard
-
     mm.innerHTML = ""
     tl.innerHTML = ""
     tm.innerHTML = ""
@@ -81,41 +66,38 @@ function boardReset() {
     bl.innerHTML = ""
     bm.innerHTML = ""
     br.innerHTML = ""
-
-    playerOneDOM.innerHTML = `Player 1 Score ${scorePlayerOne}`
-    playerTwoDOM.innerHTML = `Player 2 Score ${scorePlayerTwo}`
+    playerOneDOM.innerHTML = scorePlayerOne
+    playerTwoDOM.innerHTML = scorePlayerTwo
 }
-/**
- * 
- * @param {boolean} newGame true = resets all data | false = refreshes board
- * @param {boolean} player true = player one won | false = player two won 
-*/
-function resetGame(newGame, player) {
 
+function resetGame(newGame, playerOnevictor) {
     if (newGame === true) {
         scorePlayerOne = 0
         scorePlayerTwo = 0
     } else if (newGame === false) {
-        if (player === true) {
+        if (playerOnevictor === true) {
             scorePlayerOne++
-        } else if (player === false) {
+        } else if (playerOnevictor === false) {
             scorePlayerTwo++
         }
     }
-    alert(player === true ? 'Player One Won' : 'Player Two Won')
+    alert(playerOnevictor === true ? 'Player One Won' : 'Player Two Won')
     boardReset()
 }
-function emptySpot () {
-    if(selectedBoard[index1][index2] === null) {
-        // we can play
-        return true
-        }else {
-            prompt('This spot has already been taken')
-        }
+
+function emptySpot (gridItem) {
+    for (let i = 0; i < boardMap.length; i++) {
+    let index = boardMap[i].indexOf(gridItem);
+    if (index > -1) {
+    let index1 = i
+    let index2 = index
+    if (selectedBoard[index1][index2] !== null) {
+        alert('That spot has been taken, try another move.')
     }
-/**
- * Determins who the winner is and uses the resetGame function to add to the score/clean the board
- */
+    }
+  }
+}
+
 function winCondition() {
     // Top row wins [0][0],[0][1],[0][2]
     if (selectedBoard[0][0] === playerOneToken && selectedBoard[0][1] === playerOneToken && selectedBoard[0][2] === playerOneToken) {
@@ -159,16 +141,9 @@ function winCondition() {
         resetGame(false, false)
     }
 }
-/**
- * Randomly generates a number between 0-2 to be used on the board
- * @returns An number between 0-2
- */
 function randomThreebyThree() {
     return Math.floor(Math.random() * (3 - 1 + 1)) + 0;
 }
-/**
- * Randomly generates a choice (does not play the choice yet)
- */
 function randomChoice() {
     index1 = randomThreebyThree()
     index2 = randomThreebyThree()
@@ -177,64 +152,98 @@ function randomChoice() {
         index2 = randomThreebyThree()
     }
     gridItem = boardMap[index1][index2] 
-    playToken(gridItem,playerTwoToken)
-    turn = turn + 1
+    x = eval(gridItem.toLowerCase())
+    x.innerHTML = playerTwoToken
+    turnCounter()
 }
-
-/**
- * Plays a given token when called
- * @param {string} grid The grid cordinates expresses as a string
- * @param {string} playerToken  The players token
- */
 function playToken(grid, playerToken) {
     switch (grid) {
         case 'MM':
+            emptySpot(grid)
             selectedBoard[1][1] = playerToken
             mm.innerHTML = playerToken
+            turnCounter()
+            randomChoice()
             break
         case 'TL':
+            emptySpot(grid)
             selectedBoard[0][0] = playerToken
             tl.innerHTML = playerToken
+            turnCounter()
+            randomChoice()
+            break
         case 'TM':
+            emptySpot(grid)
             selectedBoard[0][1] = playerToken
             tm.innerHTML = playerToken
+            turnCounter()
+            randomChoice()
             break
         case 'TR':
+            emptySpot(grid)
             selectedBoard[0][2] = playerToken
             tr.innerHTML = playerToken
+            turnCounter()
+            randomChoice()
             break
         case 'ML':
+            emptySpot(grid)
             selectedBoard[1][0] = playerToken
             ml.innerHTML = playerToken
+            turnCounter()
+            randomChoice()
             break
         case 'MR':
+            emptySpot(grid)
             selectedBoard[1][2] = playerToken
             mr.innerHTML = playerToken
+            turnCounter()
+            randomChoice()
             break
         case 'BL':
+            emptySpot(grid)
             selectedBoard[2][0] = playerToken
             bl.innerHTML = playerToken
+            turnCounter()
+            randomChoice()
             break
         case 'BM':
+            emptySpot(grid)
             selectedBoard[2][1] = playerToken
             bm.innerHTML = playerToken
+            turnCounter()
+            randomChoice()
             break
         case 'BR':
+            emptySpot(grid)
             selectedBoard[2][2] = playerToken
             br.innerHTML = playerToken
+            turnCounter()
+            randomChoice()
             break
         default:
-            console.log('Click area not defined')
+            prompt('Please report error: 101 - no grid to the Github issue page')
             break
     }
 }
 
 // Grid Event Listners
-mm.addEventListener("click", playToken.bind(this, 'MM', playerOneToken), false)
+
+tl.addEventListener("click", emptySpot.bind(this, 'TL'), false)
+tm.addEventListener("click", emptySpot.bind(this, 'TM'), false)
+tr.addEventListener("click", emptySpot.bind(this, 'TR'), false)
+ml.addEventListener("click", emptySpot.bind(this, 'ML'), false)
+mm.addEventListener("click", emptySpot.bind(this, 'MM'), false)
+mr.addEventListener("click", emptySpot.bind(this, 'MR'), false)
+bl.addEventListener("click", emptySpot.bind(this, 'BL'), false)
+bm.addEventListener("click", emptySpot.bind(this, 'BM'), false)
+br.addEventListener("click", emptySpot.bind(this, 'BR'), false)
+
 tl.addEventListener("click", playToken.bind(this, 'TL', playerOneToken), false)
 tm.addEventListener("click", playToken.bind(this, 'TM', playerOneToken), false)
 tr.addEventListener("click", playToken.bind(this, 'TR', playerOneToken), false)
 ml.addEventListener("click", playToken.bind(this, 'ML', playerOneToken), false)
+mm.addEventListener("click", playToken.bind(this, 'MM', playerOneToken), false)
 mr.addEventListener("click", playToken.bind(this, 'MR', playerOneToken), false)
 bl.addEventListener("click", playToken.bind(this, 'BL', playerOneToken), false)
 bm.addEventListener("click", playToken.bind(this, 'BM', playerOneToken), false)
@@ -243,4 +252,4 @@ br.addEventListener("click", playToken.bind(this, 'BR', playerOneToken), false)
 // Button Event Listners 
 btnWinner.addEventListener("click", winCondition)
 btnReset.addEventListener("click", boardReset)
-btnRandomMove.addEventListener("click", randomChoice)
+// btnRandomMove.addEventListener("click", randomChoice)
