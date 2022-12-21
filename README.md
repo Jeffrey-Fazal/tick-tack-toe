@@ -67,7 +67,7 @@ Upload to server via SFTP
 Browse to directory in browser
 ```
 
-This project can also be viewed at: <link pending> 
+This project can also be viewed at: [Jeffrey's Git Hub Page](https://jeffrey-fazal.github.io/tick-tack-toe/)
 
 ## Bug reporting & Feature requests
 

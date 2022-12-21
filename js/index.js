@@ -17,7 +17,6 @@ let playerOneToken = 'x'
 let playerTwoToken = 'o'
 
 let playerOneTurn = true
-
 let turn = 0
 
 // Define gameBoard grid
@@ -39,15 +38,15 @@ let win = document.querySelector("#game-status")
 let domTurn = document.querySelector("#game-status")
 let playerOneDOM = document.querySelector("#player-one-score")
 let playerTwoDOM = document.querySelector("#player-two-score")
-let gameCount = document.querySelector("#game-counter")
 
 const click = new Audio('audio/click.mp3');
 
 function turnCounter() {
     turn = turn + 1
-    gameCount.innerHTML = turn
     click.play()
     winCondition()
+    playerOneTurn = !playerOneTurn
+    console.log('Player One:' + playerOneTurn)
 }
 
 function boardReset() {
@@ -141,93 +140,94 @@ function winCondition() {
         resetGame(false, false)
     }
 }
-    function randomThreebyThree() {
-        return Math.floor(Math.random() * (3 - 1 + 1)) + 0;
-    }
-    function randomChoice() {
+function randomThreebyThree() {
+    return Math.floor(Math.random() * (3 - 1 + 1)) + 0;
+}
+function randomChoice() {
+    index1 = randomThreebyThree()
+    index2 = randomThreebyThree()
+    while (selectedBoard[index1][index2] !== null) {
         index1 = randomThreebyThree()
         index2 = randomThreebyThree()
-        while (selectedBoard[index1][index2] !== null) {
-            index1 = randomThreebyThree()
-            index2 = randomThreebyThree()
-        }
-        selectedBoard[index1][index2] = playerTwoToken
+    }
+    selectedBoard[index1][index2] = playerTwoToken
 
-        gridItem = boardMap[index1][index2]
-        x = eval(gridItem.toLowerCase())
-        x.innerHTML = playerTwoToken
-        turnCounter()
+    gridItem = boardMap[index1][index2]
+    stringGridLocation = gridItem.toLowerCase()
+    playGrid = eval(stringGridLocation)
+    playGrid.innerHTML = playerTwoToken
+    turnCounter()
+}
+function playToken(grid, playerToken) {
+    switch (grid) {
+        case 'MM':
+            emptySpot(grid)
+            selectedBoard[1][1] = playerToken
+            mm.innerHTML = playerToken
+            turnCounter()
+            randomChoice()
+            break
+        case 'TL':
+            emptySpot(grid)
+            selectedBoard[0][0] = playerToken
+            tl.innerHTML = playerToken
+            turnCounter()
+            randomChoice()
+            break
+        case 'TM':
+            emptySpot(grid)
+            selectedBoard[0][1] = playerToken
+            tm.innerHTML = playerToken
+            turnCounter()
+            randomChoice()
+            break
+        case 'TR':
+            emptySpot(grid)
+            selectedBoard[0][2] = playerToken
+            tr.innerHTML = playerToken
+            turnCounter()
+            randomChoice()
+            break
+        case 'ML':
+            emptySpot(grid)
+            selectedBoard[1][0] = playerToken
+            ml.innerHTML = playerToken
+            turnCounter()
+            randomChoice()
+            break
+        case 'MR':
+            emptySpot(grid)
+            selectedBoard[1][2] = playerToken
+            mr.innerHTML = playerToken
+            turnCounter()
+            randomChoice()
+            break
+        case 'BL':
+            emptySpot(grid)
+            selectedBoard[2][0] = playerToken
+            bl.innerHTML = playerToken
+            turnCounter()
+            randomChoice()
+            break
+        case 'BM':
+            emptySpot(grid)
+            selectedBoard[2][1] = playerToken
+            bm.innerHTML = playerToken
+            turnCounter()
+            randomChoice()
+            break
+        case 'BR':
+            emptySpot(grid)
+            selectedBoard[2][2] = playerToken
+            br.innerHTML = playerToken
+            turnCounter()
+            randomChoice()
+            break
+        default:
+            prompt('Please report error: 101 - no grid to the Github issue page')
+            break
     }
-    function playToken(grid, playerToken) {
-        switch (grid) {
-            case 'MM':
-                emptySpot(grid)
-                selectedBoard[1][1] = playerToken
-                mm.innerHTML = playerToken
-                turnCounter()
-                randomChoice()
-                break
-            case 'TL':
-                emptySpot(grid)
-                selectedBoard[0][0] = playerToken
-                tl.innerHTML = playerToken
-                turnCounter()
-                randomChoice()
-                break
-            case 'TM':
-                emptySpot(grid)
-                selectedBoard[0][1] = playerToken
-                tm.innerHTML = playerToken
-                turnCounter()
-                randomChoice()
-                break
-            case 'TR':
-                emptySpot(grid)
-                selectedBoard[0][2] = playerToken
-                tr.innerHTML = playerToken
-                turnCounter()
-                randomChoice()
-                break
-            case 'ML':
-                emptySpot(grid)
-                selectedBoard[1][0] = playerToken
-                ml.innerHTML = playerToken
-                turnCounter()
-                randomChoice()
-                break
-            case 'MR':
-                emptySpot(grid)
-                selectedBoard[1][2] = playerToken
-                mr.innerHTML = playerToken
-                turnCounter()
-                randomChoice()
-                break
-            case 'BL':
-                emptySpot(grid)
-                selectedBoard[2][0] = playerToken
-                bl.innerHTML = playerToken
-                turnCounter()
-                randomChoice()
-                break
-            case 'BM':
-                emptySpot(grid)
-                selectedBoard[2][1] = playerToken
-                bm.innerHTML = playerToken
-                turnCounter()
-                randomChoice()
-                break
-            case 'BR':
-                emptySpot(grid)
-                selectedBoard[2][2] = playerToken
-                br.innerHTML = playerToken
-                turnCounter()
-                randomChoice()
-                break
-            default:
-                prompt('Please report error: 101 - no grid to the Github issue page')
-                break
-        }
-    }
+}
 
 // Grid Event Listners
 
