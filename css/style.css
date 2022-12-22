@@ -1,11 +1,11 @@
 body {
-  background: rgb(0, 34, 76);
-  background: linear-gradient(155deg, rgba(0, 34, 76, 1) 0%, rgba(0, 0, 0, 1) 100%);
-  color: whitesmoke;
+  background-image: url("../images/background.png");
+  background-repeat: no-repeat;
+  background-size: cover; 
   height: 100%;
-  margin: 0;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  color: #105BA6;
 }
 
 h1 {
@@ -13,8 +13,8 @@ h1 {
 }
 
 .player-icons {
-  max-width: 30px;
-  max-height: 30px;
+  max-width: 100px;
+  max-height: 100px;
 }
 
 .container {
@@ -35,7 +35,10 @@ h1 {
 }
 
 .Board {
+  display: flex;
   grid-area: Board;
+  align-items: center;
+  justify-content: center;
 }
 
 .Options {
@@ -54,10 +57,16 @@ h1 {
 
 .grid-container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  background-color: #04081A;
-  padding: 10px;
-  color: #FB805D;
+  grid-template-columns: 150px 150px 150px;
+  grid-template-rows: 150px 150px 150px;
+}
+
+.grid-item {
+  background-color: #ACD5F3;
+  border: 1px solid #04081A;
+  /* padding: 80px; */
+  font-size: 16px;
+  text-align: center;
 }
 
 #player-one-score,
@@ -65,21 +74,10 @@ h1 {
   color: #ACD5F3;
 }
 
-.grid-item {
-  background-color: rgba(255, 255, 255, 1);
-  border: 1px solid rgba(0, 0, 0, 0.8);
-  padding: 45px;
-  font-size: 30px;
-  text-align: center;
-}
 
 #game-scores {
-
   padding: 10px;
   text-align: center;
-  margin: 10px;
-  background-color: #04081A;
-  border-radius: 5%;
 }
 
 #player-one-score,
@@ -92,8 +90,10 @@ h1 {
 }
 
 .playerName {
-  font-size: 12px;
-  padding: 10px
+  font-size: 16px;
+  color: #105BA6;
+  background-color: #c9e3f3;
+  border-radius: 10%;
 }
 
 .switch {
@@ -159,4 +159,8 @@ h1 {
 #reset-board:hover {
   background: #ACD5F3;
   text-decoration: none;
+}
+img {
+  height: 80px;
+  width: 80px;
 }
