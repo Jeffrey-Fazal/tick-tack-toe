@@ -51,7 +51,6 @@ function turnCounter() {
     turn = turn + 1
     click.play()
     winCondition()
-    playerOneTurn = !playerOneTurn
 }
 
 function boardReset() {
@@ -156,24 +155,24 @@ function randomThreebyThree() {
     return Math.floor(Math.random() * (3 - 1 + 1)) + 0;
 }
 function randomChoice(person) {
-    // if(person === false){
-    index1 = randomThreebyThree()
-    index2 = randomThreebyThree()
-    while (selectedBoard[index1][index2] !== null) {
+    if (person === false) {
         index1 = randomThreebyThree()
         index2 = randomThreebyThree()
-    }
-    selectedBoard[index1][index2] = playerTwoToken
+        while (selectedBoard[index1][index2] !== null) {
+            index1 = randomThreebyThree()
+            index2 = randomThreebyThree()
+        }
+        selectedBoard[index1][index2] = playerTwoToken
 
-    gridItem = boardMap[index1][index2]
-    stringGridLocation = gridItem.toLowerCase()
-    playGrid = eval(stringGridLocation)
-    playGrid.innerHTML = playerTwoToken
-    turnCounter()
-} /* }
+        gridItem = boardMap[index1][index2]
+        stringGridLocation = gridItem.toLowerCase()
+        playGrid = eval(stringGridLocation)
+        playGrid.innerHTML = playerTwoToken
         turnCounter()
-     */
-// }
+    } else {
+    playerOneTurn = !playerOneTurn
+    }
+}
 function playToken(grid, playerToken) {
     switch (grid) {
         case 'MM':
