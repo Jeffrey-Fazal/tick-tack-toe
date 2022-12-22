@@ -167,22 +167,14 @@ function randomChoice(person) {
         stringGridLocation = gridItem.toLowerCase()
         playGrid = eval(stringGridLocation)
         playGrid.innerHTML = playerTwoToken
-        playerOneTurn = !playerOneTurn
         turnCounter()
     } else {
-        playerOneTurn = !playerOneTurn
+    playerOneTurn = !playerOneTurn
     }
 }
 function playToken(grid, playerToken) {
-// two variables to work with: playeroneturn = true is player ones turn
-// human = false (cpu is playing)
-if (playerOneTurn === true){
-    playerToken = playerOneToken
-    }else if (playerOneTurn === false){
-    playerToken = playerTwoToken
-    }
+    
     switch (grid) {
-
         case 'MM':
             emptySpot(grid)
             selectedBoard[1][1] = playerToken
@@ -275,7 +267,7 @@ bm.addEventListener("click", playToken.bind(this, 'BM', playerOneToken), false)
 br.addEventListener("click", playToken.bind(this, 'BR', playerOneToken), false)
 
 // Button Event Listners 
-btnReset.addEventListener("click", function () { alert('Here is a new keyboard shortcut: F5'); alert('Just press F5 to refresh the page') })
+btnReset.addEventListener("click", function(){alert('Here is a new keyboard shortcut: F5'); alert('Just press F5 to refresh the page')})
 
 // Event Listner for toggle
 document.addEventListener('DOMContentLoaded', function () {
@@ -285,11 +277,9 @@ document.addEventListener('DOMContentLoaded', function () {
         if (checkbox.checked) {
             human = true
             console.log('Human {human=} ' + human);
-            boardReset()
         } else {
             human = false
             console.log('CPU {human=} ' + human);
-            boardReset()
         }
     });
 });
