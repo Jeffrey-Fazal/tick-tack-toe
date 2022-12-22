@@ -73,19 +73,27 @@ h1 {
   text-align: center;
 }
 
-#player-one-score,
-#player-two-score {
-  border: solid;
-  padding: 2px;
-  background-color: black;
-  font-size: 20px;
-}
-
 #game-scores {
-  border: solid;
+
   padding: 10px;
   text-align: center;
   margin: 10px;
+  background-color: #04081A;
+  border-radius: 5%;
+}
+
+#player-one-score,
+#player-two-score {
+  padding: 2px;
+  background-color: #881A29;
+  border-radius: 25%;
+  color:125D8B;
+  font-size: 25px;
+}
+
+.playerName {
+  font-size: 12px;
+  padding: 10px
 }
 
 .switch {
@@ -124,15 +132,31 @@ h1 {
 }
 
 #define-human:checked+.slider {
-  background-color: #2196F3;
+  background-color: #125D8B;
 }
 
 #define-human:focus+.slider {
-  box-shadow: 0 0 1px #2196F3;
+  box-shadow: 0 0 1px #ACD5F3;
 }
 
 #define-human:checked+.slider:before {
   -webkit-transform: translateX(26px);
   -ms-transform: translateX(26px);
   transform: translateX(26px);
+}
+
+#reset-board {
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  background: #125D8B;
+  padding: 8px 12px 8px 12px;
+  text-decoration: none;
+}
+#reset-board:hover {
+  background: #ACD5F3;
+  text-decoration: none;
 }
