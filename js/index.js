@@ -21,6 +21,8 @@ let turn = 0
 
 let human = false
 
+const delay = ms => new Promise(res => setTimeout(res, ms));
+
 // Define gameBoard grid
 const tl = document.querySelector("#TL")
 const tm = document.querySelector("#TM")
@@ -71,7 +73,7 @@ function boardReset() {
     playerTwoDOM.innerHTML = scorePlayerTwo
 }
 
-function resetGame(newGame, playerOnevictor) {
+async function resetGame(newGame, playerOnevictor) {
     if (newGame === true) {
         scorePlayerOne = 0
         scorePlayerTwo = 0
@@ -84,13 +86,14 @@ function resetGame(newGame, playerOnevictor) {
     }
     if (playerOnevictor === true) {
         fanFare.play()
+        await delay(499)
         alert('Player One Won')
 
     } else {
         laugh.play()
+        await delay(499)
         alert('Player Two Won')
     }
-    console.log('reached rest')
     boardReset()
 }
 
@@ -102,6 +105,7 @@ function emptySpot(gridItem) {
             let index2 = index
             if (selectedBoard[index1][index2] !== null) {
                 alert('That spot has been taken, try another move.')
+                return turn
             }
         }
     }
@@ -173,7 +177,7 @@ function randomChoice(person) {
         playerOneTurn = !playerOneTurn
     }
 }
-function playToken(grid, playerToken) {
+function playToken(grid) {
 // two variables to work with: playeroneturn = true is player ones turn
 // human = false (cpu is playing)
 if (playerOneTurn === true){
@@ -184,9 +188,10 @@ if (playerOneTurn === true){
     switch (grid) {
 
         case 'MM':
-            emptySpot(grid)
+            rtnSpot = emptySpot(grid)
+            if (rtnSpot = true){
             selectedBoard[1][1] = playerToken
-            mm.innerHTML = playerToken
+            mm.innerHTML = playerToken}
             turnCounter()
             randomChoice(human)
             break
@@ -254,15 +259,7 @@ if (playerOneTurn === true){
 
 // Grid Event Listners
 
-tl.addEventListener("click", emptySpot.bind(this, 'TL'), false)
-tm.addEventListener("click", emptySpot.bind(this, 'TM'), false)
-tr.addEventListener("click", emptySpot.bind(this, 'TR'), false)
-ml.addEventListener("click", emptySpot.bind(this, 'ML'), false)
-mm.addEventListener("click", emptySpot.bind(this, 'MM'), false)
-mr.addEventListener("click", emptySpot.bind(this, 'MR'), false)
-bl.addEventListener("click", emptySpot.bind(this, 'BL'), false)
-bm.addEventListener("click", emptySpot.bind(this, 'BM'), false)
-br.addEventListener("click", emptySpot.bind(this, 'BR'), false)
+
 
 tl.addEventListener("click", playToken.bind(this, 'TL', playerOneToken), false)
 tm.addEventListener("click", playToken.bind(this, 'TM', playerOneToken), false)
@@ -275,7 +272,7 @@ bm.addEventListener("click", playToken.bind(this, 'BM', playerOneToken), false)
 br.addEventListener("click", playToken.bind(this, 'BR', playerOneToken), false)
 
 // Button Event Listners 
-btnReset.addEventListener("click", function () { alert('Here is a new keyboard shortcut: F5'); alert('Just press F5 to refresh the page') })
+btnReset.addEventListener("click", function () {location.reload()})
 
 // Event Listner for toggle
 document.addEventListener('DOMContentLoaded', function () {
