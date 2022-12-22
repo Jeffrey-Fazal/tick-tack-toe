@@ -12,38 +12,43 @@
 </head>
 
 <body>
-<div class="container">
-  <div class="Info">
-  <h1>Tick Tack & Toe </h1>
-    <div id="game-stats">
-      <p id="game-status">Game in progress</p>
-    </div>
-    <div id="game-scores">
-      <span>Player 1</span><span id="player-one-score">0</span>
-      <span>Player 2 </span><span id="player-two-score">0</span>
-    </div>
-    </div>
-  <div class="Board">
-        <div class="grid-container">
-      <div class="grid-item" id="TL"></div>
-      <div class="grid-item" id="TM"></div>
-      <div class="grid-item" id="TR"></div>  
-      <div class="grid-item" id="ML"></div>
-      <div class="grid-item" id="MM"></div>
-      <div class="grid-item" id="MR"></div>  
-      <div class="grid-item" id="BL"></div>
-      <div class="grid-item" id="BM"></div>
-      <div class="grid-item" id="BR"></div>  
-    </div>
-    </div>
-  <div class="Options">
-      <button id="reset-board" type="button">Reset Game</button>
-      
+  <div class="container">
+    <div class="Info">
+      <h1>Tick Tack & Toe </h1>
+      <div id="game-stats">
+        <p id="game-status">Game in progress</p>
       </div>
-  <div class="right-aside">
+      <div id="game-scores">
+        <span>Player 1</span><span id="player-one-score">0</span>
+        <span>Player 2 </span><span id="player-two-score">0</span>
+      </div>
+    </div>
+    <div class="Board">
+      <div class="grid-container">
+        <div class="grid-item" id="TL"></div>
+        <div class="grid-item" id="TM"></div>
+        <div class="grid-item" id="TR"></div>
+        <div class="grid-item" id="ML"></div>
+        <div class="grid-item" id="MM"></div>
+        <div class="grid-item" id="MR"></div>
+        <div class="grid-item" id="BL"></div>
+        <div class="grid-item" id="BM"></div>
+        <div class="grid-item" id="BR"></div>
+      </div>
+    </div>
+    <div class="Options">
+      <button id="reset-board" type="button">Reset Game</button>
+      <span>CPU</span>
+      <label class="switch">
+        <input id="define-human" type="checkbox">
+        <div class="slider"></div>
+      </label>
+      <span>Human</span>
+    </div>
+    <div class="right-aside">
+    </div>
+    <div class="left-aside"></div>
   </div>
-  <div class="left-aside"></div>
-</div>
 
   <script src="js/index.js"></script>
 </body>

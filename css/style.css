@@ -1,8 +1,24 @@
 body {
-  background-color: #04081A;
-  color: grey;
+  background: rgb(0, 34, 76);
+  background: linear-gradient(155deg, rgba(0, 34, 76, 1) 0%, rgba(0, 0, 0, 1) 100%);
+  color: whitesmoke;
+  height: 100%;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
-.container {  display: grid;
+
+h1 {
+  color: #ACD5F3;
+}
+
+.player-icons {
+  max-width: 30px;
+  max-height: 30px;
+}
+
+.container {
+  display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: auto 1fr auto;
   gap: 0px 0px;
@@ -13,39 +29,110 @@ body {
     ". Options .";
 }
 
-.Info { grid-area: Info; }
+.Info {
+  grid-area: Info;
+  text-align: center;
+}
 
-.Board { grid-area: Board; }
+.Board {
+  grid-area: Board;
+}
 
-.Options { grid-area: Options; }
+.Options {
+  grid-area: Options;
+  padding: 10px;
+  text-align: center;
+}
 
-.right-aside { grid-area: right-aside; }
+.right-aside {
+  grid-area: right-aside;
+}
 
-.left-aside { grid-area: left-aside; }
-/* created with https://grid.layoutit.com/?id=SQUOdXw*/
+.left-aside {
+  grid-area: left-aside;
+}
 
 .grid-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  background-color: #2196F3;
+  background-color: #04081A;
   padding: 10px;
+  color: #FB805D;
+}
+
+#player-one-score,
+#player-two-score {
+  color: #ACD5F3;
 }
 
 .grid-item {
   background-color: rgba(255, 255, 255, 1);
   border: 1px solid rgba(0, 0, 0, 0.8);
-  padding: 60px;
-  font-size: 45px;
+  padding: 45px;
+  font-size: 30px;
   text-align: center;
 }
-#player-one-score,#player-two-score  {
+
+#player-one-score,
+#player-two-score {
   border: solid;
   padding: 2px;
+  background-color: black;
+  font-size: 20px;
 }
 
-#game-scores{
-  border:solid;
+#game-scores {
+  border: solid;
   padding: 10px;
   text-align: center;
   margin: 10px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+#define-human:checked+.slider {
+  background-color: #2196F3;
+}
+
+#define-human:focus+.slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+#define-human:checked+.slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
 }

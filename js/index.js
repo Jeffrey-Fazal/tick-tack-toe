@@ -13,11 +13,15 @@ let selectedBoard = newGameBoard
 let scorePlayerOne = 0
 let scorePlayerTwo = 0
 
-let playerOneToken = 'x'
-let playerTwoToken = 'o'
+let playerOneToken = '<img class="player-icons" src="./images/check-mark.png" alt="playerOneIcon">'
+let playerTwoToken = '<img class="player-icons" src="./images/cancel.png" alt="playerTwoIcon"></img>'
+
+
 
 let playerOneTurn = true
 let turn = 0
+
+let human = false
 
 // Define gameBoard grid
 const tl = document.querySelector("#TL")
@@ -39,14 +43,15 @@ let domTurn = document.querySelector("#game-status")
 let playerOneDOM = document.querySelector("#player-one-score")
 let playerTwoDOM = document.querySelector("#player-two-score")
 
-const click = new Audio('audio/click.mp3');
+const click = new Audio('audio/click.mp3')
+const laugh = new Audio('audio/loose.mp3')
+const fanFare = new Audio('audio/win.mp3')
 
 function turnCounter() {
     turn = turn + 1
     click.play()
     winCondition()
     playerOneTurn = !playerOneTurn
-    console.log('Player One:' + playerOneTurn)
 }
 
 function boardReset() {
@@ -80,7 +85,14 @@ function resetGame(newGame, playerOnevictor) {
             scorePlayerTwo++
         }
     }
-    alert(playerOnevictor === true ? 'Player One Won' : 'Player Two Won')
+    if (playerOnevictor === true) {
+        fanFare.play()
+        alert('Player One Won')
+
+    } else {
+        laugh.play()
+        alert('Player Two Won')
+    }
     boardReset()
 }
 
@@ -143,7 +155,8 @@ function winCondition() {
 function randomThreebyThree() {
     return Math.floor(Math.random() * (3 - 1 + 1)) + 0;
 }
-function randomChoice() {
+function randomChoice(person) {
+    // if(person === false){
     index1 = randomThreebyThree()
     index2 = randomThreebyThree()
     while (selectedBoard[index1][index2] !== null) {
@@ -157,7 +170,10 @@ function randomChoice() {
     playGrid = eval(stringGridLocation)
     playGrid.innerHTML = playerTwoToken
     turnCounter()
-}
+} /* }
+        turnCounter()
+     */
+// }
 function playToken(grid, playerToken) {
     switch (grid) {
         case 'MM':
@@ -165,63 +181,63 @@ function playToken(grid, playerToken) {
             selectedBoard[1][1] = playerToken
             mm.innerHTML = playerToken
             turnCounter()
-            randomChoice()
+            randomChoice(human)
             break
         case 'TL':
             emptySpot(grid)
             selectedBoard[0][0] = playerToken
             tl.innerHTML = playerToken
             turnCounter()
-            randomChoice()
+            randomChoice(human)
             break
         case 'TM':
             emptySpot(grid)
             selectedBoard[0][1] = playerToken
             tm.innerHTML = playerToken
             turnCounter()
-            randomChoice()
+            randomChoice(human)
             break
         case 'TR':
             emptySpot(grid)
             selectedBoard[0][2] = playerToken
             tr.innerHTML = playerToken
             turnCounter()
-            randomChoice()
+            randomChoice(human)
             break
         case 'ML':
             emptySpot(grid)
             selectedBoard[1][0] = playerToken
             ml.innerHTML = playerToken
             turnCounter()
-            randomChoice()
+            randomChoice(human)
             break
         case 'MR':
             emptySpot(grid)
             selectedBoard[1][2] = playerToken
             mr.innerHTML = playerToken
             turnCounter()
-            randomChoice()
+            randomChoice(human)
             break
         case 'BL':
             emptySpot(grid)
             selectedBoard[2][0] = playerToken
             bl.innerHTML = playerToken
             turnCounter()
-            randomChoice()
+            randomChoice(human)
             break
         case 'BM':
             emptySpot(grid)
             selectedBoard[2][1] = playerToken
             bm.innerHTML = playerToken
             turnCounter()
-            randomChoice()
+            randomChoice(human)
             break
         case 'BR':
             emptySpot(grid)
             selectedBoard[2][2] = playerToken
             br.innerHTML = playerToken
             turnCounter()
-            randomChoice()
+            randomChoice(human)
             break
         default:
             prompt('Please report error: 101 - no grid to the Github issue page')
@@ -253,3 +269,18 @@ br.addEventListener("click", playToken.bind(this, 'BR', playerOneToken), false)
 
 // Button Event Listners 
 btnReset.addEventListener("click", boardReset)
+
+// Event Listner for toggle
+document.addEventListener('DOMContentLoaded', function () {
+    const checkbox = document.querySelector('#define-human');
+
+    checkbox.addEventListener('change', function () {
+        if (checkbox.checked) {
+            human = true
+            console.log('Human {human=} ' + human);
+        } else {
+            human = false
+            console.log('CPU {human=} ' + human);
+        }
+    });
+});

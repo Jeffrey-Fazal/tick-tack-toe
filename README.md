@@ -103,3 +103,11 @@ When submitting an issue:
 * [W3C Schools CSS Grid](https://www.w3schools.com/css/css_grid.asp)
 
 * [CSS Grid Generator](https://grid.layoutit.com/?id=uU0QCoF)
+
+### Images
+
+[Background Generator](https://bggenerator.com/)
+
+https://coolbackgrounds.io/
+
+https://cssgradient.io/
